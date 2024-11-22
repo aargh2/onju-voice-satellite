@@ -14,6 +14,13 @@ external_components:
       ref: dev-next
     components: [adf_pipeline, i2s_audio]
 
+  - source:
+      type: git
+      url: https://github.com/kahrendt/esphome
+      ref:  mww-v2-external-library
+    refresh: 0s
+    components: [ micro_wake_word ]
+
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
@@ -67,6 +74,7 @@ esp32:
       # need to set a s3 compatible board for the adf-sdk to compile
       # board specific code is not used though
       CONFIG_ESP32_S3_BOX_BOARD: "y"
+      CONFIG_ESP32_DEFAULT_CPU_FREQ_240: "y"
 
 psram:
   mode: octal
